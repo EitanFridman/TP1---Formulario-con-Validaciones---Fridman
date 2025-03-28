@@ -62,6 +62,7 @@ input:focus {
 
 /* Mensajes de error y éxito */
 label#nombrelabel, label#maillabel, label#contraseñalabel, label#contraseña2label {
+    color: red;
     font-size: 0.9rem;
     margin-top: 5px;
 }

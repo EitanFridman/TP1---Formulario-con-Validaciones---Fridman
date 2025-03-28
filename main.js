@@ -3,6 +3,18 @@ let valido2 = false;
 let valido3 = false;
 let valido4 = false;
 
+
+function actualizarBoton() {
+    let botonEnviar = document.getElementById("enviarBtn");
+    if (valido1 && valido2 && valido3 && valido4) {
+        botonEnviar.disabled = false;
+    } else {
+        botonEnviar.disabled = true;
+    }
+}
+
+
+
 Validar = (id, label) => {
     let labelaux = document.getElementById(label)
     let idaux = document.getElementById(id)
@@ -14,6 +26,9 @@ Validar = (id, label) => {
         labelaux.innerText = "Escribe bien, por favor.";
         valido1 = false;
     }
+
+    actualizarBoton();
+
 }
 
 
@@ -31,8 +46,10 @@ mail.addEventListener("input", () => {
         mailLabel.innerText = "Por favor, ingresa un mail válido";
         valido2 = false;
     }
-});
 
+    actualizarBoton();
+
+});
 
 
 ContraseñaBien = (id, label) => {
@@ -48,6 +65,8 @@ ContraseñaBien = (id, label) => {
         labelaux.innerText = "La contraseña debe tener al menos una letra, un número y 8 caracteres";
         valido3 = false;
     }
+
+    actualizarBoton();
 }
 
 
@@ -64,15 +83,13 @@ ValidarContraseña = (id, label, idb) => {
         labelaux.innerText = "Las contraseñas deben ser iguales";
         valido4 = false;
     }
+
+    actualizarBoton();
 }
 
 
 function enviar(boton) {
-    console.log(valido1);
-    console.log(valido2);
-    console.log(valido3);
-    console.log(valido4);
-    
+   
     let botonEnviar = document.getElementById(boton);
 
     botonEnviar.disabled = false;
@@ -85,15 +102,12 @@ function enviar(boton) {
 
         botonEnviar.disabled = true;
         alert("Por favor, corrija los errores en los campos.");
+
     }
 }
 
 
-
-
-
-
-
-
-
-
+//esto es para que al iniciar la pagina el boton de enviar este deshabilitado
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarBoton();
+});
