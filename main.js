@@ -92,15 +92,9 @@ function enviar(boton) {
    
     let botonEnviar = document.getElementById(boton);
 
-    botonEnviar.disabled = false;
-
     if (valido1 && valido2 && valido3 && valido4) {
-
-        botonEnviar.disabled = false;
         alert("¡Formulario enviado correctamente!");
     } else {
-
-        botonEnviar.disabled = true;
         alert("Por favor, corrija los errores en los campos.");
 
     }
